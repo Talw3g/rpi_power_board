@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 1 8
 Title ""
 Date ""
 Rev ""
@@ -43,5 +43,17 @@ S 9800 1300 1200 750
 U 5BCDDEAC
 F0 "Outputs" 50
 F1 "Outputs.sch" 50
+$EndSheet
+$Sheet
+S 1150 2900 1400 900 
+U 5BE442FC
+F0 "Microcontroller" 50
+F1 "Microcontroller.sch" 50
+$EndSheet
+$Sheet
+S 3600 2900 1200 900 
+U 5BEA0F8F
+F0 "General_purpose" 50
+F1 "General_purpose.sch" 50
 $EndSheet
 $EndSCHEMATC
