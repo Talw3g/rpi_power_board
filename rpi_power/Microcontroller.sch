@@ -281,37 +281,21 @@ Wire Wire Line
 	4650 3750 4800 3750
 Wire Wire Line
 	4650 3850 4800 3850
-Wire Wire Line
-	4650 2350 4800 2350
-Wire Wire Line
-	4650 2450 4800 2450
-Wire Wire Line
-	4650 2550 4800 2550
-Wire Wire Line
-	4650 2650 4800 2650
-Wire Wire Line
-	3250 3250 3100 3250
-Wire Wire Line
-	3250 3350 3100 3350
-Wire Wire Line
-	3250 3450 3100 3450
-Wire Wire Line
-	3250 3550 3100 3550
-Text GLabel 3100 3550 0    50   Output ~ 0
+Text GLabel 4650 3550 2    50   Output ~ 0
 ENABLE
-Text GLabel 3100 3250 0    50   Output ~ 0
+Text GLabel 4650 3250 2    50   Output ~ 0
 VCOND_MEASURE
-Text GLabel 3100 3450 0    50   Input ~ 0
+Text GLabel 4650 3450 2    50   Input ~ 0
 POWER_STATE
-Text GLabel 3100 3350 0    50   Input ~ 0
+Text GLabel 4650 3350 2    50   Input ~ 0
 WATCHDOG
-Text GLabel 4800 2350 2    50   Input ~ 0
+Text GLabel 3250 3250 0    50   Input ~ 0
 ADC0
-Text GLabel 4800 2450 2    50   Input ~ 0
+Text GLabel 3250 3350 0    50   Input ~ 0
 ADC1
-Text GLabel 4800 2550 2    50   Input ~ 0
+Text GLabel 3250 3450 0    50   Input ~ 0
 ADC2
-Text GLabel 4800 2650 2    50   Input ~ 0
+Text GLabel 3250 3550 0    50   Input ~ 0
 ADC3
 Text GLabel 4800 3750 2    50   BiDi ~ 0
 I2C_SDA
@@ -333,24 +317,10 @@ $EndComp
 Connection ~ 4200 1400
 Wire Wire Line
 	4200 1400 4400 1400
-Wire Wire Line
-	3150 3750 3250 3750
-Wire Wire Line
-	3150 3850 3250 3850
-Wire Wire Line
-	3150 3950 3250 3950
-Wire Wire Line
-	3150 4050 3250 4050
-Wire Wire Line
-	3150 4150 3250 4150
 NoConn ~ 4650 2750
 NoConn ~ 4650 2850
 NoConn ~ 4650 2950
 NoConn ~ 4650 3050
-NoConn ~ 4650 3250
-NoConn ~ 4650 3350
-NoConn ~ 4650 3450
-NoConn ~ 4650 3550
 NoConn ~ 4650 3950
 NoConn ~ 4650 4050
 NoConn ~ 4650 4150
@@ -451,17 +421,21 @@ Text GLabel 3100 2450 0    50   Input ~ 0
 PDI_DATA
 Text GLabel 3050 2200 1    50   Input ~ 0
 PDI_CLK
-Text GLabel 3150 3750 0    50   BiDi ~ 0
+Text GLabel 3250 4050 0    50   BiDi ~ 0
 GPIO0
-Text GLabel 3150 3850 0    50   BiDi ~ 0
+Text GLabel 3250 4150 0    50   BiDi ~ 0
 GPIO1
-Text GLabel 3150 3950 0    50   BiDi ~ 0
+Text GLabel 3250 4250 0    50   BiDi ~ 0
 GPIO2
-Text GLabel 3150 4050 0    50   BiDi ~ 0
+Text GLabel 3250 4350 0    50   BiDi ~ 0
 GPIO3
-Text GLabel 3150 4150 0    50   BiDi ~ 0
+Text GLabel 3250 4450 0    50   BiDi ~ 0
 GPIO4
-NoConn ~ 3250 4250
-NoConn ~ 3250 4350
-NoConn ~ 3250 4450
+NoConn ~ 3250 3750
+NoConn ~ 3250 3850
+NoConn ~ 3250 3950
+NoConn ~ 4650 2350
+NoConn ~ 4650 2450
+NoConn ~ 4650 2550
+NoConn ~ 4650 2650
 $EndSCHEMATC

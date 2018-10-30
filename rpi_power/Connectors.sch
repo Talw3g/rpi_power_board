@@ -290,12 +290,12 @@ Wire Wire Line
 	4950 5650 5150 5650
 Wire Wire Line
 	4950 5750 5150 5750
-Text GLabel 5150 5750 2    50   Output ~ 0
-ADC1
-Text GLabel 5150 5650 2    50   Output ~ 0
-ADC2
 Text GLabel 5150 5550 2    50   Output ~ 0
-ADC3
+ADC1_IN
+Text GLabel 5150 5650 2    50   Output ~ 0
+ADC2_IN
+Text GLabel 5150 5750 2    50   Output ~ 0
+ADC3_IN
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 5BE4C65B
@@ -384,7 +384,7 @@ Wire Wire Line
 	7500 5550 7650 5550
 Wire Wire Line
 	7500 5450 7650 5450
-Text GLabel 7650 5850 2    50   BiDi ~ 0
+Text GLabel 7650 5450 2    50   BiDi ~ 0
 GPIO0
 $Comp
 L Connector_Generic:Conn_01x06 J9
@@ -399,13 +399,13 @@ F 5 "1725698" H 7300 5750 50  0001 C CNN "Ref"
 	1    7300 5750
 	-1   0    0    1   
 $EndComp
-Text GLabel 7650 5750 2    50   BiDi ~ 0
+Text GLabel 7650 5550 2    50   BiDi ~ 0
 GPIO1
 Text GLabel 7650 5650 2    50   BiDi ~ 0
 GPIO2
-Text GLabel 7650 5550 2    50   BiDi ~ 0
+Text GLabel 7650 5750 2    50   BiDi ~ 0
 GPIO3
-Text GLabel 7650 5450 2    50   BiDi ~ 0
+Text GLabel 7650 5850 2    50   BiDi ~ 0
 GPIO4
 Text GLabel 4100 1750 2    50   UnSpc ~ 0
 27

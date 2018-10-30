@@ -367,9 +367,9 @@ Connection ~ 9650 3800
 Text Notes 7150 2750 0    118  ~ 24
 General purpose ADCs
 Text GLabel 7050 3200 1    50   Input ~ 0
-ADC1
+ADC1_IN
 Text GLabel 8200 3200 1    50   Input ~ 0
-ADC2
+ADC2_IN
 Text GLabel 9300 3200 1    50   Input ~ 0
-ADC3
+ADC3_IN
 $EndSCHEMATC
