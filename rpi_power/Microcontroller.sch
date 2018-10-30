@@ -1,10 +1,10 @@
 EESchema Schematic File Version 4
-LIBS:cellar-cache
+LIBS:rpi_power-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 8
+Sheet 6 6
 Title ""
 Date ""
 Rev ""
