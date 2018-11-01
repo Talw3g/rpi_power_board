@@ -30,10 +30,6 @@ $EndComp
 Wire Wire Line
 	2850 1350 2850 1300
 Wire Wire Line
-	3150 1350 3150 1300
-Wire Wire Line
-	3250 1350 3250 1300
-Wire Wire Line
 	3850 1750 4100 1750
 Wire Wire Line
 	3850 1850 4100 1850
@@ -100,8 +96,6 @@ Connection ~ 2750 4100
 Wire Wire Line
 	2850 1300 2900 1300
 Wire Wire Line
-	3150 1300 3200 1300
-Wire Wire Line
 	2950 1300 2950 1350
 Wire Wire Line
 	2250 3350 2050 3350
@@ -136,11 +130,6 @@ Wire Wire Line
 Connection ~ 2900 1300
 Wire Wire Line
 	2900 1300 2950 1300
-Wire Wire Line
-	3200 1300 3200 1250
-Connection ~ 3200 1300
-Wire Wire Line
-	3200 1300 3250 1300
 $Comp
 L power:+5V #PWR03
 U 1 1 5BE0BE5A
@@ -150,17 +139,6 @@ F 1 "+5V" H 2915 1423 50  0000 C CNN
 F 2 "" H 2900 1250 50  0001 C CNN
 F 3 "" H 2900 1250 50  0001 C CNN
 	1    2900 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR05
-U 1 1 5BE0BE90
-P 3200 1250
-F 0 "#PWR05" H 3200 1100 50  0001 C CNN
-F 1 "+3V3" H 3215 1423 50  0000 C CNN
-F 2 "" H 3200 1250 50  0001 C CNN
-F 3 "" H 3200 1250 50  0001 C CNN
-	1    3200 1250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -189,20 +167,6 @@ Text GLabel 4100 2050 2    50   BiDi ~ 0
 I2C_SDA
 Text GLabel 4100 2150 2    50   BiDi ~ 0
 I2C_SCL
-Wire Wire Line
-	3250 1300 3550 1300
-Connection ~ 3250 1300
-$Comp
-L power:PWR_FLAG #FLG03
-U 1 1 5BE8CB1B
-P 3550 1300
-F 0 "#FLG03" H 3550 1375 50  0001 C CNN
-F 1 "PWR_FLAG" H 3550 1474 50  0000 C CNN
-F 2 "" H 3550 1300 50  0001 C CNN
-F 3 "~" H 3550 1300 50  0001 C CNN
-	1    3550 1300
-	1    0    0    -1  
-$EndComp
 $Comp
 L Connector_Generic:Conn_01x03 J1
 U 1 1 5BD61958
@@ -469,10 +433,6 @@ $EndComp
 Wire Wire Line
 	7400 1400 7400 1350
 Wire Wire Line
-	7700 1400 7700 1350
-Wire Wire Line
-	7800 1400 7800 1350
-Wire Wire Line
 	8400 1800 8650 1800
 Wire Wire Line
 	8400 1900 8650 1900
@@ -539,8 +499,6 @@ Connection ~ 7300 4150
 Wire Wire Line
 	7400 1350 7450 1350
 Wire Wire Line
-	7700 1350 7750 1350
-Wire Wire Line
 	7500 1350 7500 1400
 Wire Wire Line
 	6800 3400 6600 3400
@@ -575,11 +533,6 @@ Wire Wire Line
 Connection ~ 7450 1350
 Wire Wire Line
 	7450 1350 7500 1350
-Wire Wire Line
-	7750 1350 7750 1300
-Connection ~ 7750 1350
-Wire Wire Line
-	7750 1350 7800 1350
 $Comp
 L power:+5V #PWR014
 U 1 1 5BEE7F42
@@ -589,17 +542,6 @@ F 1 "+5V" H 7465 1473 50  0000 C CNN
 F 2 "" H 7450 1300 50  0001 C CNN
 F 3 "" H 7450 1300 50  0001 C CNN
 	1    7450 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR016
-U 1 1 5BEE7F48
-P 7750 1300
-F 0 "#PWR016" H 7750 1150 50  0001 C CNN
-F 1 "+3V3" H 7765 1473 50  0000 C CNN
-F 2 "" H 7750 1300 50  0001 C CNN
-F 3 "" H 7750 1300 50  0001 C CNN
-	1    7750 1300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -689,4 +631,48 @@ F 3 "" H 7650 6000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 5950 7650 6000
+Text GLabel 3150 1150 1    50   UnSpc ~ 0
+1
+Text GLabel 3250 1150 1    50   UnSpc ~ 0
+17
+Text GLabel 7700 1400 1    50   UnSpc ~ 0
+1
+Text GLabel 7800 1400 1    50   UnSpc ~ 0
+17
+Wire Wire Line
+	3150 1350 3150 1200
+Wire Wire Line
+	3250 1150 3250 1300
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5BDC6759
+P 3400 1300
+F 0 "#FLG0101" H 3400 1375 50  0001 C CNN
+F 1 "PWR_FLAG" V 3400 1428 50  0000 L CNN
+F 2 "" H 3400 1300 50  0001 C CNN
+F 3 "~" H 3400 1300 50  0001 C CNN
+	1    3400 1300
+	0    1    1    0   
+$EndComp
+Connection ~ 3250 1300
+Wire Wire Line
+	3250 1300 3250 1350
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 5BDC677F
+P 3400 1200
+F 0 "#FLG0102" H 3400 1275 50  0001 C CNN
+F 1 "PWR_FLAG" V 3400 1328 50  0000 L CNN
+F 2 "" H 3400 1200 50  0001 C CNN
+F 3 "~" H 3400 1200 50  0001 C CNN
+	1    3400 1200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3250 1300 3400 1300
+Wire Wire Line
+	3400 1200 3150 1200
+Connection ~ 3150 1200
+Wire Wire Line
+	3150 1200 3150 1150
 $EndSCHEMATC

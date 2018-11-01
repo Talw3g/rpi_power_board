@@ -15,18 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Regulator_Linear:LM2936-3.3 U3
-U 1 1 5BE4474B
-P 9100 4350
-F 0 "U3" H 9100 4592 50  0000 C CNN
-F 1 "LM2936-3.3" H 9100 4501 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 9100 4575 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2936.pdf" H 9100 4300 50  0001 C CNN
-F 4 "LM2936MP-3.3/NOPB" H 9100 4350 50  0001 C CNN "Ref"
-	1    9100 4350
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR050
 U 1 1 5BE44822
 P 9100 4750
@@ -281,13 +269,13 @@ Wire Wire Line
 	4650 3750 4800 3750
 Wire Wire Line
 	4650 3850 4800 3850
-Text GLabel 4650 3550 2    50   Output ~ 0
+Text GLabel 4650 3350 2    50   Output ~ 0
 ENABLE
 Text GLabel 4650 3250 2    50   Output ~ 0
 VCOND_MEASURE
 Text GLabel 4650 3450 2    50   Input ~ 0
 POWER_STATE
-Text GLabel 4650 3350 2    50   Input ~ 0
+Text GLabel 4650 3550 2    50   Input ~ 0
 WATCHDOG
 Text GLabel 3250 3250 0    50   Input ~ 0
 ADC0
@@ -438,4 +426,17 @@ NoConn ~ 4650 2350
 NoConn ~ 4650 2450
 NoConn ~ 4650 2550
 NoConn ~ 4650 2650
+$Comp
+L power_custom:LM2936-3.3 U3
+U 1 1 5BE4474B
+P 9100 4350
+F 0 "U3" H 9100 4592 50  0000 C CNN
+F 1 "LM2936-3.3" H 9100 4501 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 9100 4575 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2936.pdf" H 9100 4300 50  0001 C CNN
+F 4 "1469062" H 9100 4350 50  0001 C CNN "Farnell"
+F 5 "LM2936MP-3.3/NOPB" H 9100 4350 50  0001 C CNN "Ref"
+	1    9100 4350
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
