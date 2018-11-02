@@ -272,7 +272,7 @@ Wire Wire Line
 Text GLabel 4650 3350 2    50   Output ~ 0
 ENABLE
 Text GLabel 4650 3250 2    50   Output ~ 0
-VCOND_MEASURE
+BATT+_MEASURE
 Text GLabel 4650 3450 2    50   Input ~ 0
 POWER_STATE
 Text GLabel 4650 3550 2    50   Input ~ 0

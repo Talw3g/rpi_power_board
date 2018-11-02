@@ -88,7 +88,7 @@ Wire Wire Line
 	2250 4750 2250 4800
 Connection ~ 2750 4100
 Text Notes 1850 2550 0    118  ~ 24
-VCOND Measure
+BATT+ Measure
 Connection ~ 2750 3350
 Wire Wire Line
 	2750 3000 2750 2950
@@ -106,9 +106,9 @@ F 3 "" H 2750 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 2100 4400 0    50   Input ~ 0
-VCOND_MEASURE
+BATT+_MEASURE
 Text GLabel 2750 2950 1    50   Input ~ 0
-VCOND
+BATT+
 Text GLabel 3350 3350 2    50   Output ~ 0
 ADC0
 Wire Wire Line

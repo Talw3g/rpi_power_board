@@ -472,7 +472,7 @@ U 1 1 5BE2D75A
 P 3400 6450
 F 0 "MH1" V 3637 6455 50  0000 C CNN
 F 1 "MountingHole_Pad" V 3546 6455 50  0000 C CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 3400 6450 50  0001 C CNN
+F 2 "Pads:MountingHole_M3-5.8_Pad_Via" H 3400 6450 50  0001 C CNN
 F 3 "~" H 3400 6450 50  0001 C CNN
 	1    3400 6450
 	0    -1   -1   0   
@@ -583,39 +583,6 @@ Wire Wire Line
 	3900 2350 3900 2650
 Wire Wire Line
 	4750 2350 5150 2350
-$Comp
-L Mechanical:MountingHole_Pad MH2
-U 1 1 5BECA8ED
-P 3400 6900
-F 0 "MH2" V 3637 6905 50  0000 C CNN
-F 1 "MountingHole_Pad" V 3546 6905 50  0000 C CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 3400 6900 50  0001 C CNN
-F 3 "~" H 3400 6900 50  0001 C CNN
-	1    3400 6900
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Mechanical:MountingHole_Pad MH3
-U 1 1 5BECA939
-P 4300 6450
-F 0 "MH3" V 4537 6455 50  0000 C CNN
-F 1 "MountingHole_Pad" V 4446 6455 50  0000 C CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 4300 6450 50  0001 C CNN
-F 3 "~" H 4300 6450 50  0001 C CNN
-	1    4300 6450
-	0    1    1    0   
-$EndComp
-$Comp
-L Mechanical:MountingHole_Pad MH4
-U 1 1 5BECA9BB
-P 4300 6900
-F 0 "MH4" V 4537 6905 50  0000 C CNN
-F 1 "MountingHole_Pad" V 4446 6905 50  0000 C CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_DIN965" H 4300 6900 50  0001 C CNN
-F 3 "~" H 4300 6900 50  0001 C CNN
-	1    4300 6900
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5150 2350 5550 2350
 Wire Wire Line
@@ -632,4 +599,41 @@ Connection ~ 7150 4250
 Connection ~ 8800 4250
 Wire Wire Line
 	6650 2150 6650 4250
+$Comp
+L Mechanical:MountingHole_Pad MH2
+U 1 1 5BE34C4E
+P 3400 6900
+F 0 "MH2" V 3637 6905 50  0000 C CNN
+F 1 "MountingHole_Pad" V 3546 6905 50  0000 C CNN
+F 2 "Pads:MountingHole_M3-5.8_Pad_Via" H 3400 6900 50  0001 C CNN
+F 3 "~" H 3400 6900 50  0001 C CNN
+	1    3400 6900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad MH3
+U 1 1 5BE34C9A
+P 4300 6450
+F 0 "MH3" V 4537 6455 50  0000 C CNN
+F 1 "MountingHole_Pad" V 4446 6455 50  0000 C CNN
+F 2 "Pads:MountingHole_M3-5.8_Pad_Via" H 4300 6450 50  0001 C CNN
+F 3 "~" H 4300 6450 50  0001 C CNN
+	1    4300 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad MH4
+U 1 1 5BE34D2A
+P 4300 6900
+F 0 "MH4" V 4537 6905 50  0000 C CNN
+F 1 "MountingHole_Pad" V 4446 6905 50  0000 C CNN
+F 2 "Pads:MountingHole_M3-5.8_Pad_Via" H 4300 6900 50  0001 C CNN
+F 3 "~" H 4300 6900 50  0001 C CNN
+	1    4300 6900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3900 2350 3900 2200
+Text GLabel 3900 2200 1    50   UnSpc ~ 0
+BATT+
 $EndSCHEMATC
