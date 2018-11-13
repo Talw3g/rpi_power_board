@@ -22,8 +22,8 @@ F 0 "J2" H 3550 3900 50  0000 C CNN
 F 1 "Raspberry_Pi_2_3" H 2400 3900 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical_SMD" H 3050 2650 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 3050 2650 50  0001 C CNN
-F 4 "2827916" H 3050 2650 50  0001 C CNN "Farnell"
-F 5 "61304021821" H 0   0   50  0001 C CNN "Ref"
+F 4 "2847933" H 3050 2650 50  0001 C CNN "Farnell"
+F 5 "2214SM-40G-75-PCR" H 0   0   50  0001 C CNN "Ref"
 	1    3050 2650
 	1    0    0    -1  
 $EndComp

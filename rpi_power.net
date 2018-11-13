@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source C:\Users\thibault\Documents\elec_projects\rpi_power_board\rpi_power\rpi_power.sch)
-    (date "02-Nov-18 12:18:49")
+    (source C:\Users\thibault\Documents\elec_projects\rpi_power_board\rpi_power.sch)
+    (date "13-Nov-18 14:53:41")
     (tool "Eeschema (5.0.1)-3")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -194,7 +194,7 @@
       (sheetpath (names /Power/) (tstamps /5BCDDEA3/))
       (tstamp 5BCE1FB8))
     (comp (ref R7)
-      (value "22.1k 1%")
+      (value 22.1k)
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (libsource (lib Device) (part R) (description Resistor))
