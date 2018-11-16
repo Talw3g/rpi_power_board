@@ -636,4 +636,8 @@ Wire Wire Line
 	3900 2350 3900 2200
 Text GLabel 3900 2200 1    50   UnSpc ~ 0
 BATT+
+Wire Wire Line
+	5550 4250 6150 4250
+Connection ~ 5550 4250
+Connection ~ 6150 4250
 $EndSCHEMATC
