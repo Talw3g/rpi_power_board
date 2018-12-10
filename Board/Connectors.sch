@@ -268,7 +268,7 @@ AR Path="/5BE442FC/5BE4C65B" Ref="J?"  Part="1"
 AR Path="/5BCD863F/5BE4C65B" Ref="J7"  Part="1" 
 F 0 "J7" H 10106 5978 50  0000 C CNN
 F 1 "PROG" H 10106 5887 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 10000 5600 50  0001 C CNN
+F 2 "Connectors_custom:PinHeader_2x03_P2.54mm_Vertical_w_enclosure" H 10000 5600 50  0001 C CNN
 F 3 "~" H 10000 5600 50  0001 C CNN
 	1    10000 5600
 	1    0    0    -1  
