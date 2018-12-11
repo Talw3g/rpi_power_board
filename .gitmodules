@@ -1,0 +1,3 @@
+[submodule "avr-avarix"]
+	path = Software/avr-avarix
+	url = git@github.com:robotter/avarix.git

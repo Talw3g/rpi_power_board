@@ -3,3 +3,8 @@
 *.ods
 *.csv
 *.xml
+Software/src/build
+Software/avr-avarix
+*.hex
+*.eep
+*.elf
