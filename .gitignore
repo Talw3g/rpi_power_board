@@ -8,3 +8,4 @@ Software/avr-avarix
 *.hex
 *.eep
 *.elf
+*.swp

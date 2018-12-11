@@ -1,16 +1,15 @@
 #include <avarix.h>
 #include <avarix/portpin.h>
+#include <avarix/intlvl.h>
 #include <clock/clock.h>
 #include <timer/timer.h>
+#include <timer/uptime.h>
 #include <util/delay.h>
 #include <stdlib.h>
-#include <avarix/intlvl.h>
 #include <pwm/motor.h>
 //#include <stdint.h>
 #include <math.h>
-#include <avr/wdt.h>
-#include "sys_time.h"
-#include <avr/interrupt.h>
+//#include <avr/wdt.h>
 
 
 #define BATT_MEASURE PORTPIN(B,0)
@@ -26,20 +25,19 @@ int main(void) {
   clock_init();
   timer_init();
 
-  enum states {
-    CHECK,
-    POWER_ON,
-    POWER_OFF,
-    START_CYCLE,
-    CYCLE,
-  };
+ // enum states {
+ //   CHECK,
+ //   POWER_ON,
+ //   POWER_OFF,
+ //   START_CYCLE,
+ //   CYCLE,
+ // };
 
-  enum states state = CHECK;
-  uint16_t start_time=0, delta_t;
+  //enum states state = CHECK;
+  uint32_t start_time=0;
+  static uint32_t up_timeout=60000000, down_timeout=5000000;
 
-  sys_time_init();
-  timer_set_callback(timerC1, 'A', TIMER_US_TO_TICKS(C1,SYS_TIME_PERIOD_US),
-    SYS_TIME_INTLVL, sys_time_periodic);
+  uptime_init();
 
   portpin_dirset(&BATT_MEASURE);
   portpin_dirset(&ENABLE);
@@ -52,54 +50,35 @@ int main(void) {
 
 //  INTLVL_DISABLE_ALL();
 //  __asm__("cli");
+
+
   while(1) {
-    switch(state){
-      case CHECK:
-        if(portpin_in(&POWER_STATE)) {
-          state = POWER_ON;
-        }
-        else {
-          state = POWER_OFF;
-        }
-        break;
 
-      case POWER_ON:
-        if(portpin_in(&WATCHDOG)) {
-          state = CHECK;
-        }
-        else {
-          state = START_CYCLE;
-        }
-        break;
+    // Wait for POWER_STATE to go HIGH
+    while(1) {
+      if(portpin_in(&POWER_STATE)) break;
+    }
 
-      case START_CYCLE:
-        start_time = sys_time_get_time_ms();
-        state = CYCLE;
-        break;
+    // Enable 5V
+    portpin_outset(&ENABLE);
+    start_time = uptime_us();
 
-      case CYCLE:
-        delta_t = sys_time_get_time_ms() - start_time;
-        if(delta_t < 1000) {
-          portpin_outclr(&ENABLE);
-        }
-        else if(delta_t > 1000) {
-          portpin_outset(&ENABLE);
-        }
-        else if(delta_t > 2000) {
-          state = CHECK;
-        }
-        break;
+    // Wait for WATCHDOG to go HIGH
+    while(!portpin_in(&WATCHDOG)) {
+      // If WATCHDOG still low after up_timeout, continue
+      if((uptime_us() - start_time) > up_timeout) break;
+    }
 
-      case POWER_OFF:
-        if(portpin_in(&WATCHDOG)) {
-          state = CHECK;
-        }
-        else {
-          portpin_outclr(&ENABLE);
-          state = CHECK;
-        }
-        break;
+    // Wait for WATCHDOG to go LOW
+    while(portpin_in(&WATCHDOG)) {
 
+    }
+
+    start_time = uptime_us();
+    // Disable 5V for down_timeout us to allow 5V to actually
+    // drop to 0V.
+    while((uptime_us() - start_time) < down_timeout) {
+      portpin_outclr(&ENABLE);
     }
   }
   return 0;

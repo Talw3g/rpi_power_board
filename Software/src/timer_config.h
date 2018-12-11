@@ -5,7 +5,7 @@
  */
 /** @name Configuration
  *
- * Unless otherwise noted, configuration values can be defined globally
+ * Unless otherwise noted, timer configuration values can be defined globally
  * (\c TIMER_* prefix) or specifically for each TIMERxn (\c TIMERxn_* prefix).
  *
  * Timers must be explicitly enabled by defining \ref TIMERxn_ENABLED.
@@ -18,15 +18,19 @@
  *
  * Valid values are 1, 2, 4, 8, 64, 256 and 1024.
  */
-#define TIMER_PRESCALER_DIV  8
-#define TIMERC1_PRESCALER_DIV  1024
-#define TIMERD1_PRESCALER_DIV  64
+#define TIMER_PRESCALER_DIV  64
 
 /// Enable TIMERxn
-#define TIMERC0_ENABLED
-#define TIMERC1_ENABLED
-#define TIMERD0_ENABLED
-#define TIMERD1_ENABLED
+#define TIMERE0_ENABLED
+
+
+/// Timer used for uptime as xn
+#define UPTIME_TIMER  E0
+/// Timer channel used for uptime
+#define UPTIME_TIMER_CHANNEL  'A'
+
+/// Uptime tick period in microseconds
+#define UPTIME_TICK_US  10000
 
 //@}
 //@}
