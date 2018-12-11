@@ -409,15 +409,15 @@ Text GLabel 3100 2450 0    50   Input ~ 0
 PDI_DATA
 Text GLabel 3050 2200 1    50   Input ~ 0
 PDI_CLK
-Text GLabel 3250 4050 0    50   BiDi ~ 0
+Text GLabel 2300 4050 0    50   BiDi ~ 0
 GPIO0
-Text GLabel 3250 4150 0    50   BiDi ~ 0
+Text GLabel 2300 4150 0    50   BiDi ~ 0
 GPIO1
-Text GLabel 3250 4250 0    50   BiDi ~ 0
+Text GLabel 2300 4250 0    50   BiDi ~ 0
 GPIO2
-Text GLabel 3250 4350 0    50   BiDi ~ 0
+Text GLabel 2300 4350 0    50   BiDi ~ 0
 GPIO3
-Text GLabel 3250 4450 0    50   BiDi ~ 0
+Text GLabel 2300 4450 0    50   BiDi ~ 0
 GPIO4
 NoConn ~ 3250 3750
 NoConn ~ 3250 3850
@@ -439,4 +439,79 @@ F 5 "LM2936MP-3.3/NOPB" H 9100 4350 50  0001 C CNN "Ref"
 	1    9100 4350
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R R14
+U 1 1 5C0E896F
+P 2750 4050
+F 0 "R14" V 2800 3850 50  0000 C CNN
+F 1 "10" V 2750 4050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2680 4050 50  0001 C CNN
+F 3 "~" H 2750 4050 50  0001 C CNN
+	1    2750 4050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5C0E8A96
+P 2750 4150
+F 0 "R15" V 2800 3950 50  0000 C CNN
+F 1 "10" V 2750 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2680 4150 50  0001 C CNN
+F 3 "~" H 2750 4150 50  0001 C CNN
+	1    2750 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 5C0E8AC6
+P 2750 4250
+F 0 "R16" V 2800 4050 50  0000 C CNN
+F 1 "10" V 2750 4250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2680 4250 50  0001 C CNN
+F 3 "~" H 2750 4250 50  0001 C CNN
+	1    2750 4250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R17
+U 1 1 5C0E8AF8
+P 2750 4350
+F 0 "R17" V 2800 4150 50  0000 C CNN
+F 1 "10" V 2750 4350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2680 4350 50  0001 C CNN
+F 3 "~" H 2750 4350 50  0001 C CNN
+	1    2750 4350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R18
+U 1 1 5C0E8B2C
+P 2750 4450
+F 0 "R18" V 2800 4250 50  0000 C CNN
+F 1 "10" V 2750 4450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2680 4450 50  0001 C CNN
+F 3 "~" H 2750 4450 50  0001 C CNN
+	1    2750 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3250 4050 2900 4050
+Wire Wire Line
+	2900 4150 3250 4150
+Wire Wire Line
+	2900 4250 3250 4250
+Wire Wire Line
+	2900 4350 3250 4350
+Wire Wire Line
+	2900 4450 3250 4450
+Wire Wire Line
+	2600 4050 2300 4050
+Wire Wire Line
+	2600 4150 2300 4150
+Wire Wire Line
+	2300 4250 2600 4250
+Wire Wire Line
+	2300 4350 2600 4350
+Wire Wire Line
+	2300 4450 2600 4450
 $EndSCHEMATC
