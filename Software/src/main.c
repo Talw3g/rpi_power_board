@@ -36,14 +36,13 @@ ISR(PORTB_INT0_vect) {
 ISR(PORTB_INT1_vect) {
   //clear interruption flag
   PORTB.INTFLAGS = 0x01;
-  sleep_disable();
 }
 
 void watchdog_init(void) {
   //set WATCHDOG as input
   portpin_dirclr(&WATCHDOG);
-  //activate pulldown and both edges input mode
-  PORTB.PIN3CTRL = PORT_ISC_BOTHEDGES_gc | PORT_OPC_PULLDOWN_gc;
+  //activate both edges input mode
+  PORTB.PIN3CTRL = PORT_ISC_BOTHEDGES_gc;
   //activate portB int0 on WATCHDOG pin
   PORTB.INT0MASK = PIN3_bm;
   //set portB interrupt0 lvl
@@ -56,14 +55,22 @@ void watchdog_init(void) {
 void sleep_init(void) {
   //set POWER_STATE as input
   portpin_dirclr(&POWER_STATE);
-  //activate pulldown and rising edge input mode
-  PORTB.PIN2CTRL = PORT_ISC_RISING_gc | PORT_OPC_PULLDOWN_gc;
+  //activate rising edge input mode
+  PORTB.PIN2CTRL = PORT_ISC_RISING_gc;
   //activate portB int1 on POWER_STATE pin
   PORTB.INT1MASK = PIN2_bm;
   //set portB interrupt1 lvl
-  PORTB.INTCTRL = PORT_INT1LVL_HI_gc;
+  PORTB.INTCTRL = PORT_INT1LVL_MED_gc;
+}
+
+void sleep(void) {
   //set SLEEP mode to POWER DOWN
-  set_sleep_mode(SLEEP_SMODE_IDLE_gc);
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  sleep_enable();
+  portpin_outclr(&ENABLE);
+  sei();
+  sleep_cpu();
+  sleep_disable();
 }
 
 bool rpi_alive(void) {
@@ -116,7 +123,7 @@ int main(void) {
     // Wait for POWER_STATE to go HIGH
     while(1) {
       if(portpin_in(&POWER_STATE)) break;
-      sleep_mode();
+      sleep();
     }
 
     // Enable 5V
