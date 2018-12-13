@@ -60,7 +60,7 @@ void sleep_init(void) {
   //activate portB int1 on POWER_STATE pin
   PORTB.INT1MASK = PIN2_bm;
   //set portB interrupt1 lvl
-  PORTB.INTCTRL = PORT_INT1LVL_MED_gc;
+  PORTB.INTCTRL |=  PORT_INT1LVL_MED_gc;
 }
 
 void sleep(void) {

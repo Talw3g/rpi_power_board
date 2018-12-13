@@ -9,3 +9,4 @@ Software/avr-avarix
 *.eep
 *.elf
 *.swp
+*.swo
