@@ -110,7 +110,7 @@ BATT+_MEASURE
 Text GLabel 2750 2950 1    50   Input ~ 0
 BATT+
 Text GLabel 3350 3350 2    50   Output ~ 0
-ADC0
+ADC4
 Wire Wire Line
 	2250 4800 2750 4800
 Wire Wire Line

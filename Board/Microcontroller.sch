@@ -277,13 +277,9 @@ Text GLabel 4650 3450 2    50   Input ~ 0
 POWER_STATE
 Text GLabel 4650 3550 2    50   Input ~ 0
 WATCHDOG
-Text GLabel 3250 3250 0    50   Input ~ 0
-ADC0
-Text GLabel 3250 3350 0    50   Input ~ 0
-ADC1
-Text GLabel 3250 3450 0    50   Input ~ 0
+Text GLabel 4650 2550 2    50   Input ~ 0
 ADC2
-Text GLabel 3250 3550 0    50   Input ~ 0
+Text GLabel 4650 2650 2    50   Input ~ 0
 ADC3
 Text GLabel 4800 3750 2    50   BiDi ~ 0
 I2C_SDA
@@ -305,10 +301,8 @@ $EndComp
 Connection ~ 4200 1400
 Wire Wire Line
 	4200 1400 4400 1400
-NoConn ~ 4650 2750
 NoConn ~ 4650 2850
 NoConn ~ 4650 2950
-NoConn ~ 4650 3050
 NoConn ~ 4650 3950
 NoConn ~ 4650 4050
 NoConn ~ 4650 4150
@@ -421,11 +415,6 @@ Text GLabel 2300 4450 0    50   BiDi ~ 0
 GPIO4
 NoConn ~ 3250 3750
 NoConn ~ 3250 3850
-NoConn ~ 3250 3950
-NoConn ~ 4650 2350
-NoConn ~ 4650 2450
-NoConn ~ 4650 2550
-NoConn ~ 4650 2650
 $Comp
 L power_custom:LM2936-3.3 U3
 U 1 1 5BE4474B
@@ -514,4 +503,16 @@ Wire Wire Line
 	2300 4350 2600 4350
 Wire Wire Line
 	2300 4450 2600 4450
+NoConn ~ 4650 3050
+Text GLabel 4650 2450 2    50   Input ~ 0
+ADC1
+NoConn ~ 3250 3250
+NoConn ~ 3250 3350
+NoConn ~ 3250 3450
+NoConn ~ 3250 3550
+Text GLabel 4650 2750 2    50   Input ~ 0
+ADC4
+NoConn ~ 4650 2350
+Text GLabel 3250 3950 0    50   Output ~ 0
+LED_AVR
 $EndSCHEMATC
