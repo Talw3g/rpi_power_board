@@ -6,23 +6,24 @@
 #include <clock/clock.h>
 #include <timer/timer.h>
 #include <timer/uptime.h>
+#include <i2c/i2c.h>
 #include <util/delay.h>
 #include <stdlib.h>
 #include <pwm/motor.h>
 #include <stdbool.h>
-//#include <stdint.h>
 #include <math.h>
+#include "config.h"
+#include "adc.h"
+//#include <stdint.h>
 //#include <avr/wdt.h>
 
 
-#define BATT_MEASURE PORTPIN(B,0)
-#define ENABLE PORTPIN(B,1)
-#define POWER_STATE PORTPIN(B,2)
-#define WATCHDOG PORTPIN(B,3)
-
 bool alive;
+uint8_t buff[10];
+static uint8_t batt_counter=0;
+uint16_t voltage;
 uint32_t wd_timer, wd_counter=0;
-static uint32_t wd_timeout=10000000, wd_mincount=50;
+const uint32_t wd_timeout=CONFIG_WD_TIMEOUT, wd_mincount=CONFIG_WD_MINCOUNT;
 
 ISR(PORTB_INT0_vect) {
   //clear interruption flag
@@ -66,10 +67,16 @@ void sleep_init(void) {
 void sleep(void) {
   //set SLEEP mode to POWER DOWN
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  //enable sleep
   sleep_enable();
+  //disable ENABLE and BATT_MEASURE
   portpin_outclr(&ENABLE);
+  portpin_outclr(&BATT_MEASURE);
+  //ensure interrupts are activated
   sei();
+  //enter sleep
   sleep_cpu();
+  //disable sleep (after wake-up)
   sleep_disable();
 }
 
@@ -95,6 +102,67 @@ bool rpi_alive(void) {
   }
 }
 
+uint16_t get_voltage(void) {
+  uint16_t AdcVal = 0, BatteryVoltage_mV = 0;
+  AdcVal = adc_get_value(&BATTERY_ADC, BATTERY_ADC_MUX);
+  BatteryVoltage_mV = (uint16_t)((uint32_t)AdcVal*(1+BATTERY_VOLT_DIV_GND/BATTERY_VOLT_DIV_BATT));
+  return BatteryVoltage_mV;
+}
+
+uint8_t * int_to_array(uint16_t number) {
+  uint16_t length = (uint16_t)(log10((float)number)/2) + 1;
+  uint8_t * arr = (uint8_t *) malloc(length * sizeof(uint8_t)), * curr = arr;
+	do {
+    *curr++ = number % 100;
+    number /= 100;
+  } while (number != 0);
+  return arr;
+}
+
+void store_voltage(void) {
+  voltage = get_voltage();
+  uint8_t *array = int_to_array(voltage);
+  uint8_t length = sizeof(array)/sizeof(uint8_t) + 1;
+  for(int i=0; i <= length; i++) {
+    buff[i] = array[i];
+  }
+}
+
+void batt_callback(void) {
+  batt_counter += 1;
+  if(batt_counter == 10){
+    store_voltage();
+    batt_counter = 0;
+  }
+}
+
+static uint8_t i2c_prepare_send_callback(uint8_t * buffer, uint8_t maxsz) {
+  if(maxsz > 10) {
+//    uint16_t volt = get_voltage();
+//    uint8_t *tmp = int_to_array(volt);
+    *buffer = *buff;
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+static void i2c_reset_callback(void) {}
+
+static void i2c_recv_callback(uint8_t *rx, uint8_t rxlen) {
+//  if(rx[0] == 0x50) {
+//    buff = 0x40;
+//  }
+//  else if(rx[0] == 0x60) {
+//    buff = 0x50;
+//  }
+//  else {
+//    buff = 0xff;
+//  }
+
+}
+
 
 int main(void) {
 
@@ -103,17 +171,26 @@ int main(void) {
   clock_init();
   timer_init();
   uptime_init();
-
+  i2c_init();
   watchdog_init();
+  adc_init(&BATTERY_ADC);
   sleep_init();
 
+  i2cs_register_prepare_send_callback(&i2cC, i2c_prepare_send_callback);
+  i2cs_register_reset_callback(&i2cC, i2c_reset_callback);
+  i2cs_register_recv_callback(&i2cC, i2c_recv_callback);
+
+  TIMER_SET_CALLBACK_US(BATTERY_TIMER, BATTERY_TIMER_CHANNEL, BATTERY_TIMER_PERIOD,
+      BATTERY_TIMER_INTLVL, batt_callback);
+
   uint32_t start_time=0;
-  static uint32_t up_timeout=60000000, down_timeout=5000000;
+  static uint32_t up_timeout=CONFIG_CYCLE_UPTIME, down_timeout=CONFIG_CYCLE_DOWNTIME;
 
 
   portpin_dirset(&BATT_MEASURE);
   portpin_dirset(&ENABLE);
   portpin_outclr(&ENABLE);
+  portpin_outclr(&BATT_MEASURE);
 
   INTLVL_ENABLE_ALL();
   __asm__("sei");

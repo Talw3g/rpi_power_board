@@ -1,3 +1,4 @@
-[submodule "avr-avarix"]
+[submodule "Software/avr-avarix"]
 	path = Software/avr-avarix
-	url = git@github.com:robotter/avarix.git
+	url = git@github.com:mehdilauters/avarix.git
+	branch = dev-xmega-firmware

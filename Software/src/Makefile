@@ -3,7 +3,7 @@
 SRCS = $(wildcard *.c)
 ASRCS =
 TARGET = main
-MODULES = clock timer pwm
+MODULES = clock timer pwm i2c
 
 
 ## Target configuration
