@@ -1,6 +1,6 @@
 /**
  * @brief board configuration
- * @author Talw3g  <tmarion90@gmail.com>
+ * @author Talw3g  <talw3g@protonmail.com>
  */
 
 #ifndef CONFIG_H
@@ -35,7 +35,7 @@
 #define BATTERY_ADC_PORTPIN        PORTPIN(A,4)
 #define BATTERY_ADC                ADCA
 #define BATTERY_ADC_MUX            ADC_CH_MUXPOS_PIN4_gc
-#define BATTERY_VOLT_DIV_BATT      100000.0
-#define BATTERY_VOLT_DIV_GND       22100.0
+#define BATTERY_ADC_CALIB_A        0.00488f
+#define BATTERY_ADC_CALIB_B        -0.5884f
 
 #endif

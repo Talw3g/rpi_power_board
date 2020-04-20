@@ -37,7 +37,7 @@
 #define BATTERY_TIMER             C1
 #define BATTERY_TIMER_CHANNEL     'A'
 #define BATTERY_TIMER_INTLVL      INTLVL_LO
-#define BATTERY_TIMER_PERIOD      100000
+#define BATTERY_TIMER_PERIOD      1000000
 
 //@}
 //@}
