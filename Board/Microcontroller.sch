@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:rpi_power-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -152,7 +152,7 @@ L Device:R R49
 U 1 1 5BE86790
 P 4700 1400
 F 0 "R49" V 4493 1400 50  0000 C CNN
-F 1 "255" V 4584 1400 50  0000 C CNN
+F 1 "100" V 4584 1400 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4630 1400 50  0001 C CNN
 F 3 "~" H 4700 1400 50  0001 C CNN
 	1    4700 1400
@@ -170,7 +170,7 @@ Wire Wire Line
 Wire Wire Line
 	4400 1750 4400 1850
 Wire Wire Line
-	4850 1400 5050 1400
+	4850 1400 4950 1400
 Wire Wire Line
 	5050 1400 5050 1350
 $Comp
@@ -277,7 +277,7 @@ Text GLabel 4650 3450 2    50   Input ~ 0
 POWER_STATE
 Text GLabel 4650 3550 2    50   Input ~ 0
 WATCHDOG
-Text GLabel 3250 3250 0    50   Input ~ 0
+Text GLabel 4650 2850 2    50   Input ~ 0
 ADC0
 Text GLabel 3250 3350 0    50   Input ~ 0
 ADC1
@@ -306,7 +306,6 @@ Connection ~ 4200 1400
 Wire Wire Line
 	4200 1400 4400 1400
 NoConn ~ 4650 2750
-NoConn ~ 4650 2850
 NoConn ~ 4650 2950
 NoConn ~ 4650 3050
 NoConn ~ 4650 3950
@@ -359,21 +358,6 @@ F 1 "GND" H 1505 3277 50  0000 C CNN
 F 2 "" H 1500 3450 50  0001 C CNN
 F 3 "" H 1500 3450 50  0001 C CNN
 	1    1500 3450
-	1    0    0    -1  
-$EndComp
-$Comp
-L MCU_Microchip_ATmega:ATxmega16A4U-AU U?
-U 1 1 5BE44375
-P 3950 3450
-AR Path="/5BE44375" Ref="U?"  Part="1" 
-AR Path="/5BE442FC/5BE44375" Ref="U2"  Part="1" 
-F 0 "U2" H 3950 3450 50  0000 C CNN
-F 1 "ATxmega16A4U-AU" H 3950 3250 50  0000 C CNN
-F 2 "Package_QFP:TQFP-44_10x10mm_P0.8mm" H 3950 3450 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8387-8-and16-bit-AVR-Microcontroller-XMEGA-A4U_Datasheet.pdf" H 3950 3450 50  0001 C CNN
-F 4 "2066301" H 3950 3450 50  0001 C CNN "Farnell"
-F 5 "ATxmega16A4U-AU" H 3950 3450 50  0001 C CNN "Ref"
-	1    3950 3450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -439,4 +423,42 @@ F 5 "LM2936MP-3.3/NOPB" H 9100 4350 50  0001 C CNN "Ref"
 	1    9100 4350
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R R15
+U 1 1 5EA4E702
+P 4700 1100
+F 0 "R15" V 4493 1100 50  0000 C CNN
+F 1 "100" V 4584 1100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4630 1100 50  0001 C CNN
+F 3 "~" H 4700 1100 50  0001 C CNN
+	1    4700 1100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4550 1100 4400 1100
+Wire Wire Line
+	4400 1100 4400 1400
+Wire Wire Line
+	4850 1100 4950 1100
+Wire Wire Line
+	4950 1100 4950 1400
+Connection ~ 4950 1400
+Wire Wire Line
+	4950 1400 5050 1400
+$Comp
+L rpi_power-rescue:ATxmega16A4U-AU-MCU_Microchip_ATmega U?
+U 1 1 5BE44375
+P 3950 3450
+AR Path="/5BE44375" Ref="U?"  Part="1" 
+AR Path="/5BE442FC/5BE44375" Ref="U2"  Part="1" 
+F 0 "U2" H 3950 3450 50  0000 C CNN
+F 1 "ATxmega16A4U-AU" H 3950 3250 50  0000 C CNN
+F 2 "Package_QFP:TQFP-44_10x10mm_P0.8mm" H 3950 3450 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8387-8-and16-bit-AVR-Microcontroller-XMEGA-A4U_Datasheet.pdf" H 3950 3450 50  0001 C CNN
+F 4 "2066301" H 3950 3450 50  0001 C CNN "Farnell"
+F 5 "ATxmega16A4U-AU" H 3950 3450 50  0001 C CNN "Ref"
+	1    3950 3450
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3250 3250
 $EndSCHEMATC

@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name cellar-rescue)(type Legacy)(uri ${KIPRJMOD}/cellar-rescue.lib)(options "")(descr ""))
+  (lib (name rpi_power-rescue)(type Legacy)(uri ${KIPRJMOD}/rpi_power-rescue.lib)(options "")(descr ""))
 )
