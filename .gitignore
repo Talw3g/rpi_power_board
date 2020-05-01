@@ -1,4 +1,12 @@
-*.*bak
+*.bak
+*.kicad_pcb-bak
 *.ods
 *.csv
 *.xml
+Software/src/build
+Software/avr-avarix
+*.hex
+*.eep
+*.elf
+*.swp
+*.swo
